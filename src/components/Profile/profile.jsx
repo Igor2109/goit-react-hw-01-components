@@ -1,37 +1,36 @@
-import React from "react";
-import css from './profile.module.css'
+import css from './profile.module.css';
 
+export const Profile = ({
+  username,
+  tag,
+  location,
+  avatar,
+  followers, views, likes,
+}) => {
+    
+  return (
+    <div className={css.profile}>
+      <div className={css.description}>
+        <img src={avatar} alt={username} className={css.avatar} />
+        <p className={css.name}>{username}</p>
+        <p className={css.tag}>@{tag}</p>
+        <p className={css.location}>{location}</p>
+      </div>
 
-
-export const Profile = (props) => {
-    return (
-      <div className="profile">
-    <div className="description">
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
-        alt="User avatar"
-        className="avatar"
-      />
-      <p className="name">Petra Marica</p>
-      <p className="tag">@pmarica</p>
-      <p className="location">Salvador, Brasil</p>
+      <ul className={css.stats}>
+        <li className={css.item}>
+          <span className={css.label}>Followers</span>
+          <span className={css.quantity}>{followers}</span>
+        </li>
+        <li className={css.item}>
+          <span className={css.label}>Views</span>
+          <span className={css.quantity}>{views}</span>
+        </li>
+        <li className={css.item}>
+          <span className={css.label}>Likes</span>
+          <span className={css.quantity}>{likes}</span>
+        </li>
+      </ul>
     </div>
-  
-    <ul className="stats">
-      <li>
-        <span className="label">Followers</span>
-        <span className="quantity">1000</span>
-      </li>
-      <li>
-        <span className="label">Views</span>
-        <span className="quantity">2000</span>
-      </li>
-      <li>
-        <span className="label">Likes</span>
-        <span className="quantity">3000</span>
-      </li>
-    </ul>
-  </div>
-    );
-  };
-  
+  );
+};

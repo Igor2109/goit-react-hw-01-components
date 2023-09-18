@@ -1,35 +1,27 @@
-
-
-
-
-export const App = (props) => {
+import user from '../data/user.json';
+import data from '../data/data.json'
+import friends from '../data/friends.json'
+import transactions from '../data/transactions.json'
+import { Profile } from './Profile/profile';
+import { Statistics } from './Statistics/statistics';
+import { FriendList } from './FriendList/FriendList';
+import { TransactionHistory } from './TransactionHistory/TransactionHistory';
+export const App = () => {
   return (
-    <div className="profile">
-  <div className="description">
-    <img
-      src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
-      alt="User avatar"
-      className="avatar"
-    />
-    <p className="name">Petra Marica</p>
-    <p className="tag">@pmarica</p>
-    <p className="location">Salvador, Brasil</p>
-  </div>
-
-  <ul className="stats">
-    <li>
-      <span className="label">Followers</span>
-      <span className="quantity">1000</span>
-    </li>
-    <li>
-      <span className="label">Views</span>
-      <span className="quantity">2000</span>
-    </li>
-    <li>
-      <span className="label">Likes</span>
-      <span className="quantity">3000</span>
-    </li>
-  </ul>
-</div>
+    
+    <div>
+      <Profile
+        avatar={user.avatar}
+        username={user.username}
+        tag={user.tag}
+        location={user.location}
+        followers={user.stats.followers}
+        views={user.stats.views}
+        likes={user.stats.likes}
+      />
+      <Statistics title="Upload stats" stats={data} />
+      <FriendList friends={friends} />
+      <TransactionHistory item={transactions} />;
+    </div>
   );
 };
